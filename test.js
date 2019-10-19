@@ -5,14 +5,18 @@ var isSpam = require("spam-detector");
 var port = process.env.PORT || 3000;
 app.get("/url/:url", (req, res) => {
     var url = req.params.url;
-    res.send(url + "lol");
+    isSpam("https://www." + url, function(err, data) {
+        res.send(data);
+        // res.send(data);
+    });
+
 })
 app.get("/", (req, res) => {
     res.send("Helllo");
 })
-isSpam("http://www.wasel.com", function(err, data) {
-    console.log(data);
-});
+
+
+
 var str = "This is test"
 datum.spamDetection(str, function(err, data) {
     if (err)
