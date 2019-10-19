@@ -2,9 +2,13 @@ var datum = require('datumbox').factory("30ca946b7d0e7579a40d8dc6e063ef06");
 var express = require('express');
 var app = express();
 var isSpam = require("spam-detector");
+var bodyParser = require('body-parser');
 var port = process.env.PORT || 3000;
 
 
+
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true, parameterLimit: 50000 }));
 
 app.get("/url/:url", (req, res) => {
     var url = req.params.url;
