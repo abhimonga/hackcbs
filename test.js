@@ -2,6 +2,7 @@ var datum = require('datumbox').factory("30ca946b7d0e7579a40d8dc6e063ef06");
 var express = require('express');
 var app = express();
 var isSpam = require("spam-detector");
+var port = process.env.port;
 app.get("/url/:url", (req, res) => {
     var url = req.params.url;
     res.send(url + "lol");
@@ -17,6 +18,6 @@ datum.spamDetection(str, function(err, data) {
     console.log(data); // Remarks here.
 });
 
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log("Connected successful");
 })
