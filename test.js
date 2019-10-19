@@ -5,8 +5,17 @@ var isSpam = require("spam-detector");
 var port = process.env.PORT || 3000;
 app.get("/url/:url", (req, res) => {
     var url = req.params.url;
-    isSpam("https://www." + url, function(err, data) {
-        res.send(data);
+    if (!(url.includes("http"))) {
+        url = "https://www." + url;
+
+    }
+
+    isSpam(url, function(err, data) {
+        if (data) {
+            res.send("OK");
+        } else {
+            res.send("SUSCiPIOUS LINK")
+        }
         // res.send(data);
     });
 
@@ -16,14 +25,17 @@ app.get("/", (req, res) => {
 })
 
 
+app.get("/text/:text", (req, res) => {
+    var str = req.params.text;
+    datum.spamDetection(str, function(err, data) {
+        if (err)
+            return console.log(err);
 
-var str = "This is test"
-datum.spamDetection(str, function(err, data) {
-    if (err)
-        return console.log(err);
+        console.log(data);
+        res.send(data); // Remarks here.
+    });
+})
 
-    console.log(data); // Remarks here.
-});
 
 app.listen(port, () => {
     console.log("Connected successful" + port);
