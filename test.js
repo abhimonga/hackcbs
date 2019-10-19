@@ -3,6 +3,9 @@ var express = require('express');
 var app = express();
 var isSpam = require("spam-detector");
 var port = process.env.PORT || 3000;
+
+
+
 app.get("/url/:url", (req, res) => {
     var url = req.params.url;
     if (!(url.includes("http"))) {
@@ -11,7 +14,7 @@ app.get("/url/:url", (req, res) => {
     }
 
     isSpam(url, function(err, data) {
-        if (data) {
+        if (!data) {
             res.send("OK");
         } else {
             res.send("SUSCiPIOUS LINK")
@@ -25,16 +28,19 @@ app.get("/", (req, res) => {
 })
 
 
-app.get("/text/:text", (req, res) => {
-    var str = req.params.text;
-    datum.spamDetection(str, function(err, data) {
+app.post("/text",(req,res)=>{
+    datum.spamDetection(req.body.text, function(err, data) {
         if (err)
-            return console.log(err);
-
-        console.log(data);
-        res.send(data); // Remarks here.
+            {
+                res.send(err);
+                return;
+            }
+        res.send(data); 
     });
-})
+
+
+});
+
 
 
 app.listen(port, () => {
