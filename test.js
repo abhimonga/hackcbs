@@ -5,7 +5,7 @@ var isSpam = require("spam-detector");
 var bodyParser = require('body-parser');
 var sightengine = require('sightengine')('126487830', 'Py3hgxvT9hWHkWfery6s');
 var request = require("request");
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 3000;
 
 
 app.use(bodyParser.json({ limit: '50mb' }));
