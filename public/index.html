@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>hackcbs</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/Features-Boxed.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="assets/css/Newsletter-Subscription-Form.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+
+</head>
+
+<body>
+    <div class="features-boxed">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center">Features </h2>
+                <p class="text-center">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh
+                    erat, pellentesque ut laoreet vitae.</p>
+            </div>
+            <div class="row justify-content-center features">
+                <div class="col-sm-6 col-md-5 col-lg-4 item">
+                    <div class="box"><i class="fa fa-map-marker icon"></i>
+                        <h3 class="name">Spam Detector</h3>
+                        <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus.
+                            Praesent aliquam in tellus eu.</p><a class="learn-more" href="#">Learn more »</a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-5 col-lg-4 item">
+                    <div class="box"><i class="fa fa-clock-o icon"></i>
+                        <h3 class="name">Url Detector</h3>
+                        <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus.
+                            Praesent aliquam in tellus eu.</p><a class="learn-more" href="#">Learn more »</a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-5 col-lg-4 item">
+                    <div class="box"><i class="fa fa-list-alt icon"></i>
+                        <h3 class="name">Violence Detecor</h3>
+                        <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus.
+                            Praesent aliquam in tellus eu.</p><a class="learn-more" href="#">Learn more »</a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-5 col-lg-4 item">
+                    <div class="box"><i class="fa fa-leaf icon"></i>
+                        <h3 class="name">Nudity detector </h3>
+                        <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus.
+                            Praesent aliquam in tellus eu.</p><a class="learn-more" href="#">Learn more »</a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-5 col-lg-4 item">
+                    <div class="box"><i class="fa fa-plane icon"></i>
+                        <h3 class="name">Sentimental Analysis</h3>
+                        <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus.
+                            Praesent aliquam in tellus eu.</p><a class="learn-more" href="#">Learn more »</a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-5 col-lg-4 item">
+                    <div class="box"><i class="fa fa-phone icon"></i>
+                        <h3 class="name">Block user Suggestions</h3>
+                        <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus.
+                            Praesent aliquam in tellus eu.</p><a class="learn-more" href="#">Learn more »</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="newsletter-subscribe">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center">Url Detector</h2>
+                <p class="text-center">Detect if a given url is spam or not!</p>
+            </div>
+            <form class="form-inline" method="post">
+                <div class="form-group"><input id="url" class="form-control" type="email" name="email"
+                        placeholder="Url Here"></div>
+                <div class="form-group"><button type="button" onclick="urlDetect()" class="btn btn-primary">Check
+                    </button></div>
+            </form>
+            <div class="row">
+                <div class="col-md-4">
+
+                </div>
+
+
+                <div id="ok" style="display: none; width:350px;" class="ml-5 mt-5 text-center alert alert-success"
+                    role="alert">
+                    <h4 class="alert-heading">Yaay, this content is spam-free</h4>
+
+                </div>
+
+                <div id="danger" style="display:none;width:350px;" class="ml-5 mt-5 text-center alert alert-danger"
+                    role="alert">
+                    <h4 class="alert-heading">Looks Like A Spam!</h4>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="newsletter-subscribe">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center">Text Detector</h2>
+                <p class="text-center"></p>
+            </div>
+            <form class="form-inline" method="post">
+                <div class="form-group"><input id="text" class="form-control" type="email" name="email"
+                        placeholder="Text Here"></div>
+                <div class="form-group"><button onclick="textDetect()" class="btn btn-primary" type="button">Check
+                    </button></div>
+            </form>
+
+            <div class="row">
+                <div class="col-md-4">
+
+                </div>
+
+
+                <div id="ok2" style="display: none; width:350px;" class="ml-5 mt-5 text-center alert alert-success"
+                    role="alert">
+                    <h4 class="alert-heading">Yaay, this content is spam-free</h4>
+
+                </div>
+
+                <div id="danger2" style="display:none;width:350px;" class="ml-5 mt-5 text-center alert alert-danger"
+                    role="alert">
+                    <h4 class="alert-heading">Looks Like A Spam!</h4>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="newsletter-subscribe">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center">Sentimental Analysis</h2>
+                <p class="text-center"></p>
+            </div>
+            <form class="form-inline" method="post">
+                <div class="form-group"><input id="sent" class="form-control" type="email" name="email"
+                        placeholder="Text Here"></div>
+                <div class="form-group"><button onclick="sentimental()" class="btn btn-primary" type="button">Check
+                    </button></div>
+            </form>
+
+            <div class="row">
+                <div class="col-md-4">
+
+                </div>
+
+
+                <div id="ok2" style="display: none; width:350px;" class="ml-5 mt-5 text-center alert alert-success"
+                    role="alert">
+                    <h4 class="alert-heading">Yaay, this content is spam-free</h4>
+
+                </div>
+
+                <div id="danger2" style="display:none;width:350px;" class="ml-5 mt-5 text-center alert alert-danger"
+                    role="alert">
+                    <h4 class="alert-heading">Looks Like A Spam!</h4>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div  class="text-center container">
+
+        <form class="text-center">
+            <div class="form-group">
+              <label for="exampleFormControlFile1">Example file input</label>
+              <input type="file" class="form-control-file" id="exampleFormControlFile1">
+            </div>
+          </form>
+
+    </div>
+
+    
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="./ajax.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
