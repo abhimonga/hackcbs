@@ -66,14 +66,14 @@ app.post("/text", (req, res) => {
      { 'Postman-Token': 'a2f24480-db09-4605-b4eb-e12849959960',
        'cache-control': 'no-cache',
        'Content-Type': 'application/json' },
-    body: { email_text: text },
+    body: { email_text: req.body.text },
     json: true };
   
   request(options, function (error, response, body) {
     if (error) throw new Error(error);
-    res.send(body.email_class.toString());
+ 
+     res.send(body.email_class.toString());
   
-    console.log(body);
   });
 
 
