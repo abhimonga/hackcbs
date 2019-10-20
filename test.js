@@ -72,7 +72,9 @@ app.post("/text", (req, res) => {
   request(options, function (error, response, body) {
     if (error) throw new Error(error);
  
-     res.json(body.email_class.toString());
+     res.json({
+         result:body.email_class
+     });
   
   });
 
