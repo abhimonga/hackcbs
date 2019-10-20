@@ -4,8 +4,8 @@ var app = express();
 var isSpam = require("spam-detector");
 var bodyParser = require('body-parser');
 var sightengine = require('sightengine')('126487830', 'Py3hgxvT9hWHkWfery6s');
-var port = process.env.PORT || 3000;
-
+var request = require("request");
+var port = process.env.PORT || 8080;
 
 
 app.use(bodyParser.json({ limit: '50mb' }));
@@ -33,7 +33,7 @@ app.get("/url/:url", (req, res) => {
 
 })
 
-app.post("/url",(req,res)=>{
+app.post("/url", (req, res) => {
 
     var url = req.body.url;
     if (!(url.includes("http"))) {
@@ -47,7 +47,7 @@ app.post("/url",(req,res)=>{
         } else {
             res.send("SUSCiPIOUS LINK")
         }
-        
+
     });
 
 });
@@ -59,13 +59,22 @@ app.get("/", (req, res) => {
 
 app.post("/text", (req, res) => {
     console.log("detection started");
-    datum.spamDetection(req.body.text, function (err, data) {
-        if (err) {
-            res.send(err);
-            return;
-        }
-        res.send(data);
-    });
+
+    var options = { method: 'POST',
+    url: 'https://plino.herokuapp.com/api/v1/classify/',
+    headers: 
+     { 'Postman-Token': 'a2f24480-db09-4605-b4eb-e12849959960',
+       'cache-control': 'no-cache',
+       'Content-Type': 'application/json' },
+    body: { email_text: text },
+    json: true };
+  
+  request(options, function (error, response, body) {
+    if (error) throw new Error(error);
+    res.send(body.email_class.toString());
+  
+    console.log(body);
+  });
 
 
 });
@@ -80,17 +89,10 @@ app.post("/image", (req, res) => {
     }).catch(function (err) {
         res.json(err);
     });
-   
+
 })
 
 
-function imageDetect(){
-
-    
-
-}
-
-imageDetect();
 
 
 app.listen(port, () => {
