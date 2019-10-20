@@ -72,7 +72,7 @@ app.post("/text", (req, res) => {
   request(options, function (error, response, body) {
     if (error) throw new Error(error);
  
-     res.send(body.email_class.toString());
+     res.send(body.toString());
   
   });
 
